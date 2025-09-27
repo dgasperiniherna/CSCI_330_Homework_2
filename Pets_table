@@ -1,0 +1,51 @@
+CREATE TABLE Pets(
+pet_id INT,
+name VARCHAR(15),
+species VARCHAR(15),
+age INT);
+
+INSERT INTO Pets(pet_id, name, species, age) 
+VALUES (1, 'Fluffy', 'Cat', 3),
+       (2, 'Max', 'Dog', 5),
+       (3, 'Sammy', 'Parrot', 2),
+       (4, 'Goldie', 'Fish', 1),
+       (5, 'Cookie', 'Dog', 4),
+       (6, 'Finn', 'Cat', 7),
+       (7, 'Jake', 'Cat', 4),
+       (8, 'Mila', 'Dog', 3),
+       (9, 'Messi', 'Dog', 2),
+       (10, 'Blue', 'Parrot', 3);
+	
+-- List all pets and their species
+SELECT name, species
+FROM Pets;
+
+-- Find the names of the oldest pet
+SELECT name
+FROM Pets
+ORDER BY age DESC
+LIMIT 1;
+
+-- Count the number of dogs in the table
+SELECT COUNT(*) AS dogs
+FROM Pets
+WHERE species = 'Dog';
+
+-- Update the age of the pet named 'Fluffy' to 4
+UPDATE Pets
+SET age = 4
+WHERE name = 'Fluffy';
+
+-- Delete all pets that are older than 5
+DELETE FROM Pets
+WHERE age > 5;
+
+-- Find the average age of all cats
+SELECT AVG(age) AS cat_average_age
+FROM Pets
+WHERE species = 'Cat';
+
+-- List all pets, sorted by age in descending order
+SELECT *
+FROM Pets
+ORDER BY age DESC;
