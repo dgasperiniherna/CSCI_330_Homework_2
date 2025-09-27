@@ -2,7 +2,8 @@ CREATE TABLE Pets(
 pet_id INT,
 name VARCHAR(15),
 species VARCHAR(15),
-age INT);
+age INT,
+PRIMARY KEY(pet_id));
 
 INSERT INTO Pets(pet_id, name, species, age) 
 VALUES (1, 'Fluffy', 'Cat', 3),
@@ -32,6 +33,7 @@ FROM Pets
 WHERE species = 'Dog';
 
 -- Update the age of the pet named 'Fluffy' to 4
+SET SQL_SAFE_UPDATES = 0; -- Added because I could not use delete or update unless the column that was being used is the primary key
 UPDATE Pets
 SET age = 4
 WHERE name = 'Fluffy';
